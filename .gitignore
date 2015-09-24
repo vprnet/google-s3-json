@@ -3,6 +3,7 @@
 *.DS_Store
 *.min.css
 upload_static.py
+access.json
 settings.py
 config.py
 venv

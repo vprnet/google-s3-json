@@ -1,0 +1,9 @@
+{
+	"last_updated": "{{ timestamp }}",
+	"stories": [{% for story in stories %}
+		{
+			'story_id': {{ story.story_id }},
+			'link': '{{ story.link }}'
+		}
+	{% endfor %}]
+}

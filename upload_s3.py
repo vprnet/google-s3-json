@@ -7,7 +7,7 @@ import time
 import datetime
 import mimetypes
 
-from boto.s3.connection import S3Connection
+from boto.s3.connection import S3Connection, OrdinaryCallingFormat
 from boto.s3.key import Key
 from main.config import (AWS_KEY, AWS_SECRET_KEY, AWS_BUCKET, AWS_DIRECTORY,
     HTML_EXPIRES, STATIC_EXPIRES, ABSOLUTE_PATH)
@@ -53,7 +53,7 @@ def set_metadata():
     gzip_extensions = ['.html', '.js', '.css']
 
     upload_list = get_files(PUSH_FROM)
-    conn = S3Connection(AWS_KEY, AWS_SECRET_KEY)
+    conn = S3Connection(AWS_KEY, AWS_SECRET_KEY,calling_format=OrdinaryCallingFormat())
     mybucket = conn.get_bucket(AWS_BUCKET)
 
     static_expires = expires_header(STATIC_EXPIRES)
@@ -62,6 +62,7 @@ def set_metadata():
     # define all necessary attributes of each file for s3
     for filename in upload_list:
         k = Key(mybucket)
+        
         ext = os.path.splitext(filename)[1]
         if not ext:
             ext = '.html'
@@ -84,7 +85,7 @@ def set_metadata():
         else:
             f = filename
 
-        k.set_metadata('Content-Type', mimetypes.types_map[ext])
+        k.set_metadata('Content-Type', 'application/json')
         etag_hash = hashlib.sha1(f + str(time.time())).hexdigest()
         k.set_metadata('ETag', etag_hash)
         k.set_contents_from_filename(f)
