@@ -5,5 +5,19 @@
 			'story_id': {{ story.story_id }},
 			'link': '{{ story.link }}'
 		}
-	{% endfor %}]
+	{% endfor %}],
+	"callout": {
+		"uri": {{ callout.uri }},
+		"text": {{ callout.text }}
+	}
+	"billboard": {
+		"story_id": {{ billboard.story_id }},
+		"title": {{ billboard.title }},
+		"text": {{ billboard.text }},
+		"link": {{ billboard.link }},
+		"facebook": {{ billboard.facebook }},
+		"twitter": {{ billboard.twitter }},
+		"email": {{ billboard.email }},
+		"phone": {{ billboard.phone }}
+	}
 }
