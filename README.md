@@ -1,7 +1,7 @@
-#VPR App Template
-Used to create and push static web applications for hosting on Amazon S3.
+#Google-S3-JSON
+Used to push VPR Homepage Spreadsheet data to S3.
 
-This stack is used by VPR to publish news apps and can be used for anything from building a blog to creating more advanced web applications.
+Based on the VPR app-template
 
 ## Technology
 - [Flask](http://flask.pocoo.org/): Used for local development
@@ -10,13 +10,6 @@ This stack is used by VPR to publish news apps and can be used for anything from
 
 - [Jinja](http://jinja.pocoo.org/docs/): Python templating language
 
-- [Bootstrap](http://getbootstrap.com/): Twitter's HTML/CSS/JS framework
-
-- [Sass](http://sass-lang.com/): CSS extension that allows for variables, inheritance, and even logic in stylesheets
-
-- [Compass](http://compass-style.org/): A Sass "framework"
-
-- [Grunt](http://gruntjs.com/): A JavaScript task runner used for concatenation, minification, preprocessing and image optimization that runs in the background during development and refreshes the page when JS changes and injects CSS changes into the pages.
 
 ## Set Up
 
@@ -44,17 +37,9 @@ This stack is used by VPR to publish news apps and can be used for anything from
 
   These settings can be configured later (see "Deploy" below)
 
-7. Install grunt modules ([read this](http://24ways.org/2013/grunt-is-not-weird-and-hard/) if getting started with Grunt)
-
-        $ cd main/static
-        $ npm install
+7. Copy `_access.json` as `access.json` and insert credentials
 
 ##Develop
-
-To get grunt running in the background:
-
-        $ cd main/static
-        $ grunt
 
 To run local server, get back to project root and run:
 
