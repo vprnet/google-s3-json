@@ -2,22 +2,22 @@
 	"last_updated": "{{ timestamp }}",
 	"stories": [{% for story in stories %}
 		{
-			'story_id': {{ story.story_id }},
-			'link': '{{ story.link }}'
+			"story_id": {{ story.story_id }},
+			"link": "{{ story.link }}"
 		}
 	{% endfor %}],
 	"callout": {
-		"uri": {{ callout.uri }},
-		"text": {{ callout.text }}
+		"uri": "{{ callout.uri }}",
+		"text": "{{ callout.text }}"
 	},
 	"billboard": {
 		"story_id": {{ billboard.story_id }},
-		"title": {{ billboard.title }},
-		"text": {{ billboard.text }},
-		"link": {{ billboard.link }},
-		"facebook": {{ billboard.facebook }},
-		"twitter": {{ billboard.twitter }},
-		"email": {{ billboard.email }},
-		"phone": {{ billboard.phone }}
+		"title": "{{ billboard.title }}",
+		"text": "{{ billboard.text }}",
+		"link": "{{ billboard.link }}",
+		"facebook": "{{ billboard.facebook }}",
+		"twitter": "{{ billboard.twitter }}",
+		"email": "{{ billboard.email }}",
+		"phone": "{{ billboard.phone }}"
 	}
 }

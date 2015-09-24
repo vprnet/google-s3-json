@@ -16,7 +16,10 @@ def index():
         for index, story in enumerate(sheets['vpr_news']):
     	    this_story = {}
     	    this_story['link'] = story['Link']
-    	    this_story['story_id'] = story['Story ID']
+    	    if story['Story ID']=='':
+        	    this_story['story_id']=0
+    	    else:
+    	        this_story['story_id'] = story['Story ID']
     	    stories.append(this_story)        
 
     callout = {}
@@ -24,7 +27,10 @@ def index():
     callout['text'] = sheets['callout'][0]['Text']
 
     billboard = {}
-    billboard['story_id'] = sheets['billboard'][0]['Story ID']
+    if sheets['billboard'][0]['Story ID']=='':
+        billboard['story_id']=0
+    else:
+        billboard['story_id'] = sheets['billboard'][0]['Story ID']
     billboard['title'] = sheets['billboard'][0]['Title']
     billboard['text'] = sheets['billboard'][0]['Text']
     billboard['link'] = sheets['billboard'][0]['Link']
