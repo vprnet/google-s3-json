@@ -9,7 +9,7 @@
 	"callout": {
 		"uri": {{ callout.uri }},
 		"text": {{ callout.text }}
-	}
+	},
 	"billboard": {
 		"story_id": {{ billboard.story_id }},
 		"title": {{ billboard.title }},
