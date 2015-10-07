@@ -1,5 +1,6 @@
 import os
 import time
+import json
 from main import app
 from flask import render_template, request
 from config import FREEZER_BASE_URL
@@ -15,7 +16,7 @@ def index():
     if len(sheets['vpr_news'])>0:
         for index, story in enumerate(sheets['vpr_news']):
     	    this_story = {}
-    	    this_story['link'] = story['Link']
+    	    this_story['link'] = json.dumps(story['Link'])
     	    if story['Story ID']=='':
         	    this_story['story_id']=0
     	    else:
@@ -24,20 +25,20 @@ def index():
 
     callout = {}
     callout['uri'] = sheets['callout'][0]['URI']
-    callout['text'] = sheets['callout'][0]['Text']
+    callout['text'] = json.dumps(sheets['callout'][0]['Text'])
 
     billboard = {}
     if sheets['billboard'][0]['Story ID']=='':
         billboard['story_id']=0
     else:
         billboard['story_id'] = sheets['billboard'][0]['Story ID']
-    billboard['title'] = sheets['billboard'][0]['Title']
-    billboard['text'] = sheets['billboard'][0]['Text']
-    billboard['link'] = sheets['billboard'][0]['Link']
-    billboard['facebook'] = sheets['billboard'][0]['Facebook']
-    billboard['twitter'] = sheets['billboard'][0]['Twitter']
-    billboard['email'] = sheets['billboard'][0]['Email']
-    billboard['phone'] = sheets['billboard'][0]['Phone']
+    billboard['title'] = json.dumps(sheets['billboard'][0]['Title'])
+    billboard['text'] = json.dumps(sheets['billboard'][0]['Text'])
+    billboard['link'] = json.dumps(sheets['billboard'][0]['Link'])
+    billboard['facebook'] = json.dumps(sheets['billboard'][0]['Facebook'])
+    billboard['twitter'] = json.dumps(sheets['billboard'][0]['Twitter'])
+    billboard['email'] = json.dumps(sheets['billboard'][0]['Email'])
+    billboard['phone'] = json.dumps(sheets['billboard'][0]['Phone'])
 	
     return render_template('vpr-homepage-app.json',
         timestamp=timestamp,
